@@ -1,0 +1,92 @@
+@import '@servicenow/sass-kit/host';
+@import '~bootstrap/scss/bootstrap';
+$mfg-card-border-color: #CED2D3;
+$mfg-card-padding: 15px;
+$mfg-card-title-color: #161B1C;
+$mfg-card-title-size: 16px;
+$mfg-card-title-weight: 600;
+$mfg-card-secondary-title-color: #6A7578;
+$mfg-card-secondary-title-size: 14px;
+$mfg-card-secondary-title-weight: 600;
+$mfg-card-heading-padding: 15px;
+$mfg-card-margin: 15px;
+$mfg-card-fields-container-padding: 15px;
+$mfg-pagination-button-padding: 5px;
+$mfg-pagination-button-color: #000;
+$mfg-pagination-button-bg: transparent;
+$mfg-pagination-button-bg-hover: #CED2D3;
+$mfg-pagination-button-cursor: pointer;
+$mfg-card-list-padding: 15px;
+$mfg-card-list-bg: #F3F5F5;
+$mfg-card-bg: #fff;
+
+.mfg-card-list {
+  padding: $mfg-card-list-padding;
+  background-color: $mfg-card-list-bg;
+}
+
+.mfg-card {
+  border: 1px solid $mfg-card-border-color;
+  padding: $mfg-card-padding;
+  margin-bottom: $mfg-card-margin;
+  background-color: $mfg-card-bg;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.mfg-card-title {
+  color: $mfg-card-title-color;
+  font-size: $mfg-card-title-size;
+  font-weight: $mfg-card-title-weight;
+}
+
+.mfg-card-secondary-title {
+  color: $mfg-card-secondary-title-color;
+  font-size: $mfg-card-secondary-title-size;
+  font-weight: $mfg-card-secondary-title-weight;
+}
+
+.mfg-card-heading {
+  border-bottom: 1px solid $mfg-card-border-color;
+  padding-bottom: $mfg-card-heading-padding;
+}
+
+.mfg-card-fields-container {
+  padding-top: $mfg-card-fields-container-padding;
+}
+
+.flex-row {
+  display: flex;
+}
+
+.flex-row-between {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.mfg-pagination-button {
+  padding: $mfg-pagination-button-padding;
+  color: $mfg-pagination-button-color;
+  background-color: $mfg-pagination-button-bg;
+  cursor: $mfg-pagination-button-cursor;
+  &:hover {
+    background-color: $mfg-pagination-button-bg-hover;
+  }
+  &.disabled {
+    background-color: $mfg-pagination-button-bg;
+    cursor: default;
+  }
+  &.active {
+    background-color: $mfg-pagination-button-bg-hover;
+  }
+}
+
+.left-chevron:before {
+  content: '\003c';
+}
+
+.right-chevron:before {
+  content: '\003e';
+}

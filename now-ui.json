@@ -1,0 +1,81 @@
+{
+	"components": {
+	    "snc-mfg-card-list": {
+	        "innerComponents": [],
+			"uiBuilder": {
+				"associatedTypes": ["global.core", "global.landing-page"],
+				"label": "MFG Card List",
+				"icon": "document-outline",
+				"description": "A description of my component",
+				"category": "primitives"
+			},
+			"properties": [
+				{
+					"name": "items",
+					"label": "Items",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "array",
+					"defaultValue": []
+				},
+				{
+					"name": "title",
+					"label": "Title",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "string",
+					"defaultValue": "Open Deviations"
+				},
+				{
+					"name": "fieldColumnClass",
+					"label": "Field Column Class",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "string",
+					"defaultValue": "col-md-6"
+				},
+				{
+					"name": "columnClass",
+					"label": "Column Class",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "string",
+					"defaultValue": "col-md-6"
+				},
+				{
+					"name": "titleClass",
+					"label": "Title Class",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "string",
+					"defaultValue": "h4"
+				},
+				{
+					"name": "enablePagination",
+					"label": "Enable Pagination",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "boolean",
+					"defaultValue": true
+				},
+				{
+					"name": "paginationWindowSize",
+					"label": "Pagination Window Size",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "number",
+					"defaultValue": 4
+				}
+			],
+			"actions": [
+				{
+					"action": "CARD_CLICKED",
+					"label": "Card Clicked",
+					"description": "Event dispatched when card is clicked.",
+					"payload": []
+				}
+			]
+	    }
+	},
+	"scopeName": "x_snc_mfg_card_l_0"
+}
