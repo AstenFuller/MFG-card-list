@@ -27,6 +27,14 @@
 					"defaultValue": "Open Deviations"
 				},
 				{
+					"name": "emptyMessage",
+					"label": "Empty Message",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "string",
+					"defaultValue": "No Open Deviations"
+				},
+				{
 					"name": "fieldColumnClass",
 					"label": "Field Column Class",
 					"readOnly": false,

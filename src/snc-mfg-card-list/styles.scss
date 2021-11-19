@@ -12,6 +12,7 @@
   padding: $mfg-card-padding;
   margin-bottom: $mfg-card-margin;
   background-color: RGB($mfg-card-bg);
+  height: $mfg-card-height;
   &:hover {
     cursor: pointer;
   }

@@ -32,7 +32,7 @@ const demo_card = {
 }
 
 const view = (state, {dispatch, updateProperties}) => {
-	const { paginationWindowSize, columnClass, fieldColumnClass, items, currentPage, enablePagination, titleClass, pages, title } = state;
+	const { emptyMessage, paginationWindowSize, columnClass, fieldColumnClass, items, currentPage, enablePagination, titleClass, pages, title } = state;
 
 	function clickedCard(obj) {
 		dispatch('CARD_CLICKED', { obj });
@@ -102,7 +102,7 @@ const view = (state, {dispatch, updateProperties}) => {
 						</div>
 					:
 						<div className='row'>
-							{items && items.length > 0 &&
+							{items && items.length > 0 ?
 								items.map((item, index) => {
 									if ((index >= (currentPage * parseInt(paginationWindowSize))) && (index <= (currentPage * parseInt(paginationWindowSize)) + parseInt(paginationWindowSize) - 1)) {
 										return (
@@ -112,7 +112,12 @@ const view = (state, {dispatch, updateProperties}) => {
 										)
 									}
 								})
+								:
+								<div>
+									<span>{emptyMessage}</span>
+								</div>
 							}
+							{items && items.length > paginationWindowSize ?
 							<div className='mfg-pagination col-md-12'>
 								<div className='flex-row-between'>
 									<div className='mfg-pagination-counter'>
@@ -137,6 +142,9 @@ const view = (state, {dispatch, updateProperties}) => {
 									</div>
 								</div>
 							</div>
+							:
+							<div></div>
+							}
 						</div>
 				}
 		</div>
@@ -152,13 +160,14 @@ createCustomElement('snc-mfg-card-list', {
 	view,
 	properties: {
 		title: { default: 'Open Deviations' },
-		items: { default: [ demo_card, demo_card, demo_card, demo_card, demo_card ] },
+		items: { default: [] },
 		columnClass: { default: 'col-md-6' },
 		fieldColumnClass: { default: 'col-md-6' },
 		paginationWindowSize: { default: 4 },
 		enablePagination: { default: true },
 		currentPage: { default: 0 },
 		titleClass: { default: 'h4' },
+		emptyMessage: { default: 'No Open Deviations' },
 		pages: { computed({properties: {items, paginationWindowSize}}) {
 			return Math.ceil(items.length / parseInt(paginationWindowSize))
 		}}
