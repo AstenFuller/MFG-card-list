@@ -1,6 +1,7 @@
-import {createCustomElement} from '@servicenow/ui-core';
+import { createCustomElement, actionTypes } from '@servicenow/ui-core';
 import snabbdom from '@servicenow/ui-renderer-snabbdom';
 import styles from './styles.scss';
+const {COMPONENT_PROPERTY_CHANGED} = actionTypes;
 
 const demo_card = {
 	title: 'Demo Title',
@@ -161,6 +162,12 @@ createCustomElement('snc-mfg-card-list', {
 		pages: { computed({properties: {items, paginationWindowSize}}) {
 			return Math.ceil(items.length / parseInt(paginationWindowSize))
 		}}
+	},
+	actionHandlers: {
+		[COMPONENT_PROPERTY_CHANGED]: ({action: {payload}, updateProperties}) => {
+			if (payload.name == 'items')
+				updateProperties({currentPage: 0});
+    }
 	},
 	styles
 });
