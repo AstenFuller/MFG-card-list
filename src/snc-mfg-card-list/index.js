@@ -1,7 +1,7 @@
 import { createCustomElement, actionTypes } from '@servicenow/ui-core';
 import snabbdom from '@servicenow/ui-renderer-snabbdom';
 import styles from './styles.scss';
-const {COMPONENT_PROPERTY_CHANGED} = actionTypes;
+const {COMPONENT_PROPERTY_CHANGED, COMPONENT_ERROR_THROWN} = actionTypes;
 
 const demo_card = {
 	title: 'Demo Title',
@@ -176,6 +176,9 @@ createCustomElement('snc-mfg-card-list', {
 		[COMPONENT_PROPERTY_CHANGED]: ({action: {payload}, updateProperties}) => {
 			if (payload.name == 'items')
 				updateProperties({currentPage: 0});
+    },
+		[COMPONENT_ERROR_THROWN]: ({action: {payload}}) => {
+      console.log(payload)
     }
 	},
 	styles
