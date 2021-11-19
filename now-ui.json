@@ -73,6 +73,22 @@
 					"required": false,
 					"fieldType": "number",
 					"defaultValue": 4
+				},
+				{
+					"name": "template",
+					"label": "Template",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "string",
+					"defaultValue": "card"
+				},
+				{
+					"name": "listBackground",
+					"label": "List Background",
+					"readOnly": false,
+					"required": false,
+					"fieldType": "string",
+					"defaultValue": "243,245,245"
 				}
 			],
 			"actions": [

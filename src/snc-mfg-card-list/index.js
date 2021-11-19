@@ -32,7 +32,7 @@ const demo_card = {
 }
 
 const view = (state, {dispatch, updateProperties}) => {
-	const { emptyMessage, paginationWindowSize, columnClass, fieldColumnClass, items, currentPage, enablePagination, titleClass, pages, title } = state;
+	const { listBackground, template, emptyMessage, paginationWindowSize, columnClass, fieldColumnClass, items, currentPage, enablePagination, titleClass, pages, title } = state;
 
 	function clickedCard(obj) {
 		dispatch('CARD_CLICKED', { obj });
@@ -71,6 +71,15 @@ const view = (state, {dispatch, updateProperties}) => {
 		)
 	}
 
+	function buildFAQ(obj) {
+		return (
+			<div className='mfg-faq' on-click={() => clickedCard(obj)}>
+				<h4 className='mfg-faq-title'>{obj.title}</h4>
+				<span className='mfg-faq-description'>{obj.secondary_title}</span>
+			</div>
+		)
+	}
+
 	function buildPaginationPages() {
 		let results = [];
 		for (let i = 0; i < pages; i++) {
@@ -84,7 +93,7 @@ const view = (state, {dispatch, updateProperties}) => {
 	}
 
 	return (
-		<div className='mfg-card-list'>
+		<div className={`mfg-card-list ${template}`} style={{backgroundColor: 'rgba(' + listBackground + ')'}}>
 			<h3>{title}</h3>
 			{
 				!enablePagination 
@@ -94,7 +103,7 @@ const view = (state, {dispatch, updateProperties}) => {
 								items.map(item => {
 									return (
 										<div className={columnClass}>
-											{buildCard(item)}
+											{template == 'card' ? buildCard(item) : buildFAQ(item)}
 										</div>
 									)
 								}) 
@@ -107,7 +116,7 @@ const view = (state, {dispatch, updateProperties}) => {
 									if ((index >= (currentPage * parseInt(paginationWindowSize))) && (index <= (currentPage * parseInt(paginationWindowSize)) + parseInt(paginationWindowSize) - 1)) {
 										return (
 											<div className={columnClass}>
-												{buildCard(item)}
+												{template == 'card' ? buildCard(item) : buildFAQ(item)}
 											</div>
 										)
 									}
@@ -160,7 +169,7 @@ createCustomElement('snc-mfg-card-list', {
 	view,
 	properties: {
 		title: { default: 'Open Deviations' },
-		items: { default: [] },
+		items: { default: [ demo_card, demo_card, demo_card, demo_card, demo_card ] },
 		columnClass: { default: 'col-md-6' },
 		fieldColumnClass: { default: 'col-md-6' },
 		paginationWindowSize: { default: 4 },
@@ -168,6 +177,8 @@ createCustomElement('snc-mfg-card-list', {
 		currentPage: { default: 0 },
 		titleClass: { default: 'h4' },
 		emptyMessage: { default: 'No Open Deviations' },
+		template: { default: 'card' },
+		listBackground: { default: '243,245,245'},
 		pages: { computed({properties: {items, paginationWindowSize}}) {
 			return Math.ceil(items.length / parseInt(paginationWindowSize))
 		}}

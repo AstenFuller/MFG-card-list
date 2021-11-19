@@ -2,9 +2,13 @@
 @import '~bootstrap/scss/bootstrap';
 @import './_theme.scss';
 
-.mfg-card-list {
+.mfg-card-list.card {
   padding: $mfg-card-list-padding;
-  background-color: RGB($mfg-card-list-bg);
+  //background-color: RGB($mfg-card-list-bg);
+}
+
+.mfg-card-list.faq {
+  padding: $mfg-card-list-faq-padding;
 }
 
 .mfg-card {
@@ -16,6 +20,10 @@
   &:hover {
     cursor: pointer;
   }
+}
+
+.mfg-faq:hover {
+  cursor: pointer;
 }
 
 .mfg-card-title {
