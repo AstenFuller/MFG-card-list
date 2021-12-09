@@ -15,8 +15,8 @@
 					"label": "Items",
 					"readOnly": false,
 					"required": false,
-					"fieldType": "array",
-					"defaultValue": []
+					"fieldType": "json",
+					"defaultValue": "[]"
 				},
 				{
 					"name": "title",
@@ -71,7 +71,7 @@
 					"label": "Pagination Window Size",
 					"readOnly": false,
 					"required": false,
-					"fieldType": "number",
+					"fieldType": "integer",
 					"defaultValue": 4
 				},
 				{

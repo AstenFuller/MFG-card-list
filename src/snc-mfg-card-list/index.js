@@ -6,6 +6,7 @@ const {COMPONENT_PROPERTY_CHANGED, COMPONENT_ERROR_THROWN} = actionTypes;
 const demo_card = {
 	title: 'Demo Title',
 	secondary_title: 'Demo Secondary Title (Short Description)',
+	category: 'Knowledge',
 	icon: 'heart',
 	sys_id: '1233456',
 	fields: [
@@ -41,9 +42,10 @@ const view = (state, {dispatch, updateProperties}) => {
 	function buildCard(obj) {
 		return (
 			<div className='mfg-card' on-click={() => clickedCard(obj)}>
-				<div className='mfg-card-heading'>
-					<h3 className={`mfg-card-title ${titleClass}`}>{obj.title}</h3>
-					<span className='mfg-card-secondary-title'>{obj.secondary_title}</span>
+				<div className={`mfg-card-heading ${obj.fields || obj.tertiary_fields ? 'has-fields' : ''}`}>
+					{obj.category && <p className='mfg-card-category'>{obj.category}</p>}
+					{obj.title && <h3 className={`mfg-card-title ${titleClass}`}>{obj.title}</h3>}
+					{obj.secondary_title && <span className='mfg-card-secondary-title'>{obj.secondary_title}</span>}
 				</div>
 				<div className='mfg-card-fields-container row'>
 					{obj.fields &&
@@ -94,7 +96,7 @@ const view = (state, {dispatch, updateProperties}) => {
 
 	return (
 		<div className={`mfg-card-list ${template}`} style={{backgroundColor: 'rgba(' + listBackground + ')'}}>
-			<h3>{title}</h3>
+			{typeof title == 'string' ? <h3>{title}</h3> : <div></div>}
 			{
 				!enablePagination 
 					? 

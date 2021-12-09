@@ -16,7 +16,7 @@
   padding: $mfg-card-padding;
   margin-bottom: $mfg-card-margin;
   background-color: RGB($mfg-card-bg);
-  height: $mfg-card-height;
+  min-height: $mfg-card-height;
   &:hover {
     cursor: pointer;
   }
@@ -24,6 +24,13 @@
 
 .mfg-faq:hover {
   cursor: pointer;
+}
+
+.mfg-card-category {
+  color: RGB($mfg-card-category-color);
+  font-size: $mfg-card-category-size;
+  font-weight: $mfg-card-category-weight;
+  margin: $mfg-card-category-margin;
 }
 
 .mfg-card-title {
@@ -39,12 +46,26 @@
 }
 
 .mfg-card-heading {
-  border-bottom: 1px solid $mfg-card-border-color;
-  padding-bottom: $mfg-card-heading-padding;
+  padding: $mfg-card-heading-padding;
+  &.has-fields {
+    border-bottom: 1px solid RGB($mfg-card-border-color);
+  }
 }
 
 .mfg-card-fields-container {
   padding-top: $mfg-card-fields-container-padding;
+}
+
+.mfg-card-field span {
+  color: RGB($mfg-card-field-color);
+  font-size: $mfg-card-field-size;
+  font-weight: $mfg-card-field-weight;
+}
+
+.mfg-card-tertiary-field span {
+  color: RGB($mfg-card-tertiary-field-color);
+  font-size: $mfg-card-tertiary-field-size;
+  font-weight: $mfg-card-tertiary-field-weight;
 }
 
 .flex-row {
